@@ -1,0 +1,234 @@
+<div id="header">
+  <header class="site-header">
+    <nav class="navbar">
+      <!-- Sol taraf (Brand) -->
+      <div class="brand">First Class</div>
+
+      <!-- Hamburger (mobil) -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Menü Panel -->
+      <div class="menu-panel" id="menu-panel">
+        <ul class="menu">
+          <li><a href="firstclass.html"><i class="fa fa-exchange-alt"></i> Havale/EFT</a></li>
+          <li>
+            <a href="dekont.html" class="with-badge"><i class="fa fa-file-invoice"></i> Dekont
+              <span class="badge">Yeni!</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Scoped Header */
+#header {
+  all: initial;
+  font-family: 'Quicksand', sans-serif;
+  display: block;
+}
+
+/* Header içi */
+#header .site-header {
+  all: unset;
+  display: block;
+  background: #1e1e2f;
+  border-bottom: 1px solid #2e2e40;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Navbar */
+#header .navbar {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Brand */
+#header .brand {
+  all: unset;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4da6ff;
+  letter-spacing: 1px;
+  animation: glow 2.5s ease-in-out infinite;
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #4da6ff, 0 0 10px #4da6ff; }
+  50% { text-shadow: 0 0 15px #4da6ff, 0 0 30px #0077ff; }
+  100% { text-shadow: 0 0 5px #4da6ff, 0 0 10px #4da6ff; }
+}
+
+/* Menü Panel */
+#header .menu-panel {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+#header .menu {
+  all: unset;
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+#header .menu li a {
+  all: unset;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 600;
+  transition: color .2s, background .2s;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+#header .menu li a:hover {
+  color: #fff;
+  background: #2e2e40;
+}
+
+/* Badge */
+#header .badge {
+  all: unset;
+  background: #ff3b3b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 6px;
+  line-height: 1;
+}
+#header .with-badge {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Hamburger */
+#header .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1100;
+}
+#header .hamburger span {
+  display: block;
+  height: 3px;
+  background: #4da6ff;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #header .menu-panel {
+    display: none;
+    width: 100%;
+    background: #1e1e2f;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    flex-direction: column;
+    align-items: center;
+    z-index: 1050;
+  }
+  #header .menu-panel.active {
+    display: flex;
+  }
+  #header .menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  #header .menu li a {
+    width: 90%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  #header .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  #header .brand {
+    font-size: 20px;
+  }
+  #header .menu li a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Modern Scrollbar (dark, header altından başlar) */
+body {
+  padding-top: 60px;
+  font-family: 'Quicksand', sans-serif;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #4da6ff #12121c;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #12121c;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #4da6ff;
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #1e90ff;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector("#header .hamburger");
+  const menuPanel = document.querySelector("#header .menu-panel");
+
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuPanel.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menuPanel.contains(e.target) && !hamburger.contains(e.target)) {
+      menuPanel.classList.remove("active");
+    }
+  });
+});
+</script>
